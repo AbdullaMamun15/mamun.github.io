@@ -14,75 +14,103 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .nav-link.active {
+            background-color: rgb(37 99 235);
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased transition-colors duration-300">
 
     <!-- Navigation Header -->
-    <nav class="fixed top-0 w-full bg-white/80 dark:bg-slate-900/90 backdrop-blur-md z-50 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-blue-600 dark:text-blue-500 tracking-wide">MAMUN<span class="text-slate-800 dark:text-slate-100">.DEV</span></a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
-                <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Skills</a>
-                <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Experience</a>
-                <a href="#education" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Education</a>
-                <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+    <nav class="fixed top-0 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-3.5 flex justify-between items-center">
+            <!-- Brand Logo (Full Name) -->
+            <a href="#" class="text-lg md:text-xl font-extrabold tracking-tight group flex items-center gap-1.5">
+                <span class="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">ABDULLA AL MAMUN</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center gap-1 bg-slate-100/80 dark:bg-slate-800/60 p-1.5 rounded-full border border-slate-200/60 dark:border-slate-700/50 shadow-inner">
+                <a href="#about" class="nav-link px-4 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white transition-all duration-300">About</a>
+                <a href="#skills" class="nav-link px-4 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white transition-all duration-300">Skills</a>
+                <a href="#experience" class="nav-link px-4 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white transition-all duration-300">Experience</a>
+                <a href="#education" class="nav-link px-4 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white transition-all duration-300">Education</a>
+                <a href="#contact" class="nav-link px-4 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white transition-all duration-300">Contact</a>
             </div>
             
-            <div class="flex items-center gap-4">
+            <!-- Controls -->
+            <div class="flex items-center gap-3">
                 <!-- Theme Toggle Button -->
-                <button id="theme-toggle" class="w-10 h-10 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-yellow-400 transition hover:bg-slate-300 dark:hover:bg-slate-700">
-                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                <button id="theme-toggle" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-amber-400 transition hover:scale-110 active:scale-95 shadow-sm">
+                    <i id="theme-icon" class="fa-solid fa-moon text-sm"></i>
                 </button>
 
-                <!-- CV Download Button in Header -->
-                <a href="Abdulla_Al_Mamun_CV.pdf" download="Abdulla_Al_Mamun_CV.pdf" class="hidden sm:flex bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition items-center gap-2 shadow-lg shadow-blue-600/20">
-                    <i class="fa-solid fa-download"></i> Download CV
-                </a>
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-200">
+                    <i class="fa-solid fa-bars text-sm"></i>
+                </button>
             </div>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-4 space-y-2">
+            <a href="#about" class="block py-2 text-sm font-semibold text-slate-600 dark:text-slate-300">About</a>
+            <a href="#skills" class="block py-2 text-sm font-semibold text-slate-600 dark:text-slate-300">Skills</a>
+            <a href="#experience" class="block py-2 text-sm font-semibold text-slate-600 dark:text-slate-300">Experience</a>
+            <a href="#education" class="block py-2 text-sm font-semibold text-slate-600 dark:text-slate-300">Education</a>
+            <a href="#contact" class="block py-2 text-sm font-semibold text-slate-600 dark:text-slate-300">Contact</a>
         </div>
     </nav>
 
     <!-- Hero / Intro Section -->
-    <section class="min-h-screen flex items-center pt-24 pb-12 px-6">
+    <section id="hero" class="min-h-screen flex items-center pt-28 pb-16 px-6">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <span class="text-blue-600 dark:text-blue-400 font-medium tracking-wider uppercase text-sm">Welcome to my portfolio</span>
-                <h1 class="text-4xl md:text-6xl font-extrabold mt-2 mb-4 leading-tight">
-                    Hi, I'm <br><span class="text-blue-600 dark:text-blue-500">Abdulla Al Mamun</span>
+                <!-- Unique & Modern Welcome Tag -->
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold tracking-wide uppercase mb-6 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                    Welcome to my portfolio
+                </span>
+
+                <h1 class="text-4xl md:text-6xl font-extrabold mt-2 mb-4 leading-tight tracking-tight">
+                    Hi, I'm <br><span class="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">Abdulla Al Mamun</span>
                 </h1>
-                <h2 class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium mb-6">
-                    Sub Assistant Engineer at <span class="text-slate-900 dark:text-slate-200">Abul Khair Group</span>
+                <h2 class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium mb-6 flex items-center gap-2">
+                    Sub Assistant Engineer <span class="text-xs bg-slate-200 dark:bg-slate-800 px-2.5 py-1 rounded-md text-slate-700 dark:text-slate-300 font-semibold">Abul Khair Group</span>
                 </h2>
-                <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-8 max-w-lg">
                     An engineering professional bridging technology and operations to lead automation initiatives, solve complex challenges, and drive meaningful business improvement.
                 </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition">Get In Touch</a>
-                    <!-- Main CV Download Button -->
-                    <a href="Abdulla_Al_Mamun_CV.pdf" download="Abdulla_Al_Mamun_CV.pdf" class="border border-slate-300 dark:border-slate-700 hover:border-blue-600 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 px-6 py-3 rounded-lg font-medium transition flex items-center gap-2">
-                        <i class="fa-solid fa-file-pdf"></i> Download Resume
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-7 py-3.5 rounded-xl font-semibold shadow-lg shadow-blue-600/30 hover:shadow-blue-600/40 transition-all duration-300 hover:-translate-y-1">
+                        Get In Touch
+                    </a>
+                    <a href="Abdulla_Al_Mamun_CV.pdf" download="Abdulla_Al_Mamun_CV.pdf" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 px-6 py-3.5 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2.5 shadow-sm hover:shadow-md hover:-translate-y-1">
+                        <i class="fa-solid fa-file-arrow-down text-blue-600 dark:text-blue-400 text-lg"></i> Download Resume
                     </a>
                 </div>
             </div>
             <div class="flex justify-center">
-                <!-- Profile Image -->
-                <div class="w-72 h-72 md:w-80 md:h-80 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-900 p-1.5 shadow-2xl overflow-hidden">
-                    <img src="IMG_20251230_173620.jpg" alt="Abdulla Al Mamun" class="w-full h-full object-cover rounded-xl bg-slate-200 dark:bg-slate-800">
+                <div class="relative w-72 h-72 md:w-80 md:h-80 group">
+                    <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-600 opacity-30 group-hover:opacity-60 blur-xl transition duration-500"></div>
+                    <div class="relative w-full h-full rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-900 p-1.5 shadow-2xl overflow-hidden transform group-hover:scale-[1.02] transition duration-500">
+                        <img src="IMG_20251230_173620.jpg" alt="Abdulla Al Mamun" class="w-full h-full object-cover rounded-xl bg-slate-200 dark:bg-slate-800">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Me Section -->
-    <section id="about" class="py-20 bg-slate-100 dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-800 px-6 transition-colors duration-300">
+    <section id="about" class="py-20 bg-slate-100/60 dark:bg-slate-800/40 border-y border-slate-200 dark:border-slate-800 px-6 transition-colors duration-300">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl font-bold mb-8 text-center"><span class="text-blue-600 dark:text-blue-500">About</span> Me</h2>
-            <div class="bg-white dark:bg-slate-900/80 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 leading-relaxed space-y-4 shadow-xl">
+            <div class="bg-white dark:bg-slate-900/80 p-8 rounded-2xl border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-300 leading-relaxed space-y-4 shadow-sm hover:shadow-md transition">
                 <p class="text-lg text-slate-900 dark:text-slate-200 font-medium">
                     I’m Abdulla Al Mamun, an engineering professional passionate about transforming operational challenges into efficient, technology-driven solutions.
                 </p>
@@ -104,51 +132,51 @@
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold mb-12 text-center">Professional <span class="text-blue-600 dark:text-blue-500">Skills</span></h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/80 dark:border-slate-700/50 shadow-sm flex items-center gap-3 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition duration-300 cursor-default">
                     <i class="fa-solid fa-bars-progress text-blue-600 dark:text-blue-400 text-xl"></i>
                     <span class="text-sm font-medium">IT Operations Management</span>
                 </div>
-                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/80 dark:border-slate-700/50 shadow-sm flex items-center gap-3 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition duration-300 cursor-default">
                     <i class="fa-solid fa-users text-blue-600 dark:text-blue-400 text-xl"></i>
                     <span class="text-sm font-medium">Team Leadership</span>
                 </div>
-                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/80 dark:border-slate-700/50 shadow-sm flex items-center gap-3 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition duration-300 cursor-default">
                     <i class="fa-solid fa-network-wired text-blue-600 dark:text-blue-400 text-xl"></i>
                     <span class="text-sm font-medium">Network Planning & Impl.</span>
                 </div>
-                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/80 dark:border-slate-700/50 shadow-sm flex items-center gap-3 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition duration-300 cursor-default">
                     <i class="fa-solid fa-handshake text-blue-600 dark:text-blue-400 text-xl"></i>
                     <span class="text-sm font-medium">Vendor Management</span>
                 </div>
-                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/80 dark:border-slate-700/50 shadow-sm flex items-center gap-3 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition duration-300 cursor-default">
                     <i class="fa-solid fa-cart-shopping text-blue-600 dark:text-blue-400 text-xl"></i>
                     <span class="text-sm font-medium">Procurement & Purchasing</span>
                 </div>
-                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/80 dark:border-slate-700/50 shadow-sm flex items-center gap-3 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition duration-300 cursor-default">
                     <i class="fa-solid fa-truck-ramp-box text-blue-600 dark:text-blue-400 text-xl"></i>
                     <span class="text-sm font-medium">Logistics Coordination</span>
                 </div>
-                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/80 dark:border-slate-700/50 shadow-sm flex items-center gap-3 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition duration-300 cursor-default">
                     <i class="fa-solid fa-diagram-project text-blue-600 dark:text-blue-400 text-xl"></i>
                     <span class="text-sm font-medium">Project Management</span>
                 </div>
-                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/80 dark:border-slate-700/50 shadow-sm flex items-center gap-3 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition duration-300 cursor-default">
                     <i class="fa-solid fa-wrench text-blue-600 dark:text-blue-400 text-xl"></i>
                     <span class="text-sm font-medium">Network Troubleshooting</span>
                 </div>
-                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/80 dark:border-slate-700/50 shadow-sm flex items-center gap-3 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition duration-300 cursor-default">
                     <i class="fa-solid fa-chart-line text-blue-600 dark:text-blue-400 text-xl"></i>
                     <span class="text-sm font-medium">Management Reporting</span>
                 </div>
-                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/80 dark:border-slate-700/50 shadow-sm flex items-center gap-3 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition duration-300 cursor-default">
                     <i class="fa-solid fa-boxes-stacked text-blue-600 dark:text-blue-400 text-xl"></i>
                     <span class="text-sm font-medium">Inventory Management</span>
                 </div>
-                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/80 dark:border-slate-700/50 shadow-sm flex items-center gap-3 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition duration-300 cursor-default">
                     <i class="fa-solid fa-lightbulb text-blue-600 dark:text-blue-400 text-xl"></i>
                     <span class="text-sm font-medium">Problem Solving</span>
                 </div>
-                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                <div class="bg-white dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/80 dark:border-slate-700/50 shadow-sm flex items-center gap-3 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition duration-300 cursor-default">
                     <i class="fa-solid fa-file-excel text-blue-600 dark:text-blue-400 text-xl"></i>
                     <span class="text-sm font-medium">Microsoft Excel</span>
                 </div>
@@ -156,61 +184,71 @@
         </div>
     </section>
 
-    <!-- Work Experience Section -->
-    <section id="experience" class="py-20 bg-slate-100 dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-800 px-6 transition-colors duration-300">
+    <!-- Dynamic Work Experience Section -->
+    <section id="experience" class="py-20 bg-slate-100/60 dark:bg-slate-800/40 border-y border-slate-200 dark:border-slate-800 px-6 transition-colors duration-300">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl font-bold mb-12 text-center">Job <span class="text-blue-600 dark:text-blue-500">Experience</span></h2>
             
-            <div class="relative border-l-2 border-blue-600 dark:border-blue-500 pl-6 space-y-12">
+            <div class="relative border-l-2 border-blue-600 dark:border-blue-500 pl-6 md:pl-8 space-y-10">
                 
                 <!-- Item 1 -->
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-1 bg-blue-600 dark:bg-blue-500 w-4 h-4 rounded-full border-4 border-slate-100 dark:border-slate-900"></div>
-                    <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-blue-100 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20">January 2025 to Present</span>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2">Sub Assistant Engineer</h3>
-                    <p class="text-blue-600 dark:text-blue-400 font-medium text-sm">Abul Khair Group</p>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm mt-2"><strong>Responsibilities:</strong> Managing field IT operations, team coordination, management reporting, vendor communication, procurement, and network implementation.</p>
-                    <p class="text-slate-500 text-xs mt-1"><i class="fa-solid fa-location-dot"></i> D.T. Road, Pahartali, Chittagong, 4217</p>
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1 bg-blue-600 dark:bg-blue-500 w-4 h-4 rounded-full border-4 border-slate-100 dark:border-slate-900 group-hover:scale-125 transition duration-300"></div>
+                    <div class="bg-white dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm group-hover:shadow-md group-hover:border-blue-500/50 transition duration-300">
+                        <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20 mb-2">January 2025 to Present</span>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">Sub Assistant Engineer</h3>
+                        <p class="text-blue-600 dark:text-blue-400 font-medium text-sm">Abul Khair Group</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 leading-relaxed"><strong>Responsibilities:</strong> Managing field IT operations, team coordination, management reporting, vendor communication, procurement, and network implementation.</p>
+                        <p class="text-slate-500 text-xs mt-3 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-blue-500"></i> D.T. Road, Pahartali, Chittagong, 4217</p>
+                    </div>
                 </div>
 
                 <!-- Item 2 -->
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-1 bg-blue-600 dark:bg-blue-500 w-4 h-4 rounded-full border-4 border-slate-100 dark:border-slate-900"></div>
-                    <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300">October 2023 to December 2024</span>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2">Executive Officer (IT)</h3>
-                    <p class="text-blue-600 dark:text-blue-400 font-medium text-sm">Naaf Marine Group</p>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm mt-2"><strong>Responsibilities:</strong> Managed overall IT support, including CCTV, networking, hardware, software, and website maintenance.</p>
-                    <p class="text-slate-500 text-xs mt-1"><i class="fa-solid fa-location-dot"></i> Barik-Building, Agrabad, Chattogram</p>
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1 bg-blue-600 dark:bg-blue-500 w-4 h-4 rounded-full border-4 border-slate-100 dark:border-slate-900 group-hover:scale-125 transition duration-300"></div>
+                    <div class="bg-white dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm group-hover:shadow-md group-hover:border-blue-500/50 transition duration-300">
+                        <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 mb-2">October 2023 to December 2024</span>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">Executive Officer (IT)</h3>
+                        <p class="text-blue-600 dark:text-blue-400 font-medium text-sm">Naaf Marine Group</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 leading-relaxed"><strong>Responsibilities:</strong> Managed overall IT support, including CCTV, networking, hardware, software, and website maintenance.</p>
+                        <p class="text-slate-500 text-xs mt-3 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-blue-500"></i> Barik-Building, Agrabad, Chattogram</p>
+                    </div>
                 </div>
 
                 <!-- Item 3 -->
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-1 bg-blue-600 dark:bg-blue-500 w-4 h-4 rounded-full border-4 border-slate-100 dark:border-slate-900"></div>
-                    <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300">March 2023 to September 2023</span>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2">IT Executive</h3>
-                    <p class="text-blue-600 dark:text-blue-400 font-medium text-sm">Blue Chip Technology</p>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm mt-2"><strong>Responsibilities:</strong> Responsible for software maintenance, data entry operations, MS Office applications (Word, Excel & PowerPoint), and hardware troubleshooting support.</p>
-                    <p class="text-slate-500 text-xs mt-1"><i class="fa-solid fa-location-dot"></i> Agrabad, Chattogram</p>
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1 bg-blue-600 dark:bg-blue-500 w-4 h-4 rounded-full border-4 border-slate-100 dark:border-slate-900 group-hover:scale-125 transition duration-300"></div>
+                    <div class="bg-white dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm group-hover:shadow-md group-hover:border-blue-500/50 transition duration-300">
+                        <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 mb-2">March 2023 to September 2023</span>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">IT Executive</h3>
+                        <p class="text-blue-600 dark:text-blue-400 font-medium text-sm">Blue Chip Technology</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 leading-relaxed"><strong>Responsibilities:</strong> Responsible for software maintenance, data entry operations, MS Office applications (Word, Excel & PowerPoint), and hardware troubleshooting support.</p>
+                        <p class="text-slate-500 text-xs mt-3 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-blue-500"></i> Agrabad, Chattogram</p>
+                    </div>
                 </div>
 
                 <!-- Item 4 -->
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-1 bg-blue-600 dark:bg-blue-500 w-4 h-4 rounded-full border-4 border-slate-100 dark:border-slate-900"></div>
-                    <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300">Part-Time (Not Available Now)</span>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2">Support Partner</h3>
-                    <p class="text-blue-600 dark:text-blue-400 font-medium text-sm">Business Automation Ltd.</p>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm mt-2"><strong>Responsibilities:</strong> Provided technical support and troubleshooting for banking token machines.</p>
-                    <p class="text-slate-500 text-xs mt-1"><i class="fa-solid fa-location-dot"></i> BDBL Bhaban, Level-9, 12 Kawran Bazar, Dhaka-1215</p>
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1 bg-blue-600 dark:bg-blue-500 w-4 h-4 rounded-full border-4 border-slate-100 dark:border-slate-900 group-hover:scale-125 transition duration-300"></div>
+                    <div class="bg-white dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm group-hover:shadow-md group-hover:border-blue-500/50 transition duration-300">
+                        <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 mb-2">Part-Time (Not Available Now)</span>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">Support Partner</h3>
+                        <p class="text-blue-600 dark:text-blue-400 font-medium text-sm">Business Automation Ltd.</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 leading-relaxed"><strong>Responsibilities:</strong> Provided technical support and troubleshooting for banking token machines.</p>
+                        <p class="text-slate-500 text-xs mt-3 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-blue-500"></i> BDBL Bhaban, Level-9, 12 Kawran Bazar, Dhaka-1215</p>
+                    </div>
                 </div>
 
                 <!-- Item 5 -->
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-1 bg-blue-600 dark:bg-blue-500 w-4 h-4 rounded-full border-4 border-slate-100 dark:border-slate-900"></div>
-                    <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300">May 2022 to August 2022</span>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2">Flutter Developer as a Intern</h3>
-                    <p class="text-blue-600 dark:text-blue-400 font-medium text-sm">Texon Limited</p>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm mt-2"><strong>Responsibilities:</strong> Assisted front-end developers in web development tasks and gained practical experience in modern web technologies.</p>
-                    <p class="text-slate-500 text-xs mt-1"><i class="fa-solid fa-location-dot"></i> Joydebpur, Dhaka, Bangladesh</p>
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1 bg-blue-600 dark:bg-blue-500 w-4 h-4 rounded-full border-4 border-slate-100 dark:border-slate-900 group-hover:scale-125 transition duration-300"></div>
+                    <div class="bg-white dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm group-hover:shadow-md group-hover:border-blue-500/50 transition duration-300">
+                        <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 mb-2">May 2022 to August 2022</span>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">Flutter Developer as a Intern</h3>
+                        <p class="text-blue-600 dark:text-blue-400 font-medium text-sm">Texon Limited</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 leading-relaxed"><strong>Responsibilities:</strong> Assisted front-end developers in web development tasks and gained practical experience in modern web technologies.</p>
+                        <p class="text-slate-500 text-xs mt-3 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-blue-500"></i> Joydebpur, Dhaka, Bangladesh</p>
+                    </div>
                 </div>
 
             </div>
@@ -222,19 +260,19 @@
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl font-bold mb-12 text-center">Training & <span class="text-blue-600 dark:text-blue-500">Certifications</span></h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white dark:bg-slate-800/40 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="bg-white dark:bg-slate-800/40 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-blue-500 transition duration-300">
                     <h3 class="text-lg font-bold text-slate-900 dark:text-white">Professional networking skill & fiber technology (2024)</h3>
                     <p class="text-sm text-blue-600 dark:text-blue-400 mt-1">Digital Dot Net (DDN) ISP</p>
                 </div>
-                <div class="bg-white dark:bg-slate-800/40 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="bg-white dark:bg-slate-800/40 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-blue-500 transition duration-300">
                     <h3 class="text-lg font-bold text-slate-900 dark:text-white">Networking (2022)</h3>
                     <p class="text-sm text-blue-600 dark:text-blue-400 mt-1">Amr Net ISP Company</p>
                 </div>
-                <div class="bg-white dark:bg-slate-800/40 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="bg-white dark:bg-slate-800/40 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-blue-500 transition duration-300">
                     <h3 class="text-lg font-bold text-slate-900 dark:text-white">Apps Development (2021)</h3>
                     <p class="text-sm text-blue-600 dark:text-blue-400 mt-1">Cross Platform</p>
                 </div>
-                <div class="bg-white dark:bg-slate-800/40 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="bg-white dark:bg-slate-800/40 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-blue-500 transition duration-300">
                     <h3 class="text-lg font-bold text-slate-900 dark:text-white">Office Application (2021)</h3>
                     <p class="text-sm text-blue-600 dark:text-blue-400 mt-1">Department of Youth Development</p>
                 </div>
@@ -243,13 +281,13 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-20 bg-slate-100 dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-800 px-6 transition-colors duration-300">
+    <section id="education" class="py-20 bg-slate-100/60 dark:bg-slate-800/40 border-y border-slate-200 dark:border-slate-800 px-6 transition-colors duration-300">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl font-bold mb-12 text-center">Educational <span class="text-blue-600 dark:text-blue-500">Records</span></h2>
             
             <div class="grid md:grid-cols-2 gap-6">
                 
-                <div class="bg-white dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="bg-white dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-blue-500 transition duration-300">
                     <span class="text-xs font-semibold text-blue-600 dark:text-blue-400">Present</span>
                     <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Bachelor Of Science</h3>
                     <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">Computer Science and Engineering</p>
@@ -257,7 +295,7 @@
                     <p class="text-xs text-slate-500 mt-2">Board: UGC</p>
                 </div>
 
-                <div class="bg-white dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="bg-white dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-blue-500 transition duration-300">
                     <span class="text-xs font-semibold text-blue-600 dark:text-blue-400">Passing Year: 2022</span>
                     <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Diploma In Engineering</h3>
                     <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">Computer Technology</p>
@@ -265,7 +303,7 @@
                     <p class="text-xs text-slate-500 mt-2">Board: BTEB | Result: 3.57 out of 4.00</p>
                 </div>
 
-                <div class="bg-white dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="bg-white dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-blue-500 transition duration-300">
                     <span class="text-xs font-semibold text-blue-600 dark:text-blue-400">Passing Year: 2019</span>
                     <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Higher School Certificate (H.S.C)</h3>
                     <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">Science Group</p>
@@ -273,7 +311,7 @@
                     <p class="text-xs text-slate-500 mt-2">Board: Cumilla | Result: 3.92 out of 5.00</p>
                 </div>
 
-                <div class="bg-white dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="bg-white dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-blue-500 transition duration-300">
                     <span class="text-xs font-semibold text-blue-600 dark:text-blue-400">Passing Year: 2017</span>
                     <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Secondary School Certificate (S.S.C)</h3>
                     <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">Science Group</p>
@@ -295,66 +333,70 @@
                     
                     <div class="space-y-4">
                         <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                            <div class="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div>
                                 <p class="text-xs text-slate-500 dark:text-slate-400">Email</p>
-                                <a href="mailto:almamunabdulla801@gmail.com" class="text-sm text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400">almamunabdulla801@gmail.com</a>
+                                <a href="mailto:almamunabdulla801@gmail.com" class="text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400">almamunabdulla801@gmail.com</a>
                             </div>
                         </div>
 
                         <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                            <div class="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div>
                                 <p class="text-xs text-slate-500 dark:text-slate-400">Mobile</p>
-                                <a href="tel:+8801879710026" class="text-sm text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400">+8801879-710026</a>
+                                <a href="tel:+8801879710026" class="text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400">+8801879-710026</a>
                             </div>
                         </div>
 
                         <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                            <div class="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div>
                                 <p class="text-xs text-slate-500 dark:text-slate-400">Present Address</p>
-                                <p class="text-sm text-slate-800 dark:text-slate-200">Noapara, Firoz Shah, Pahartali, Chattogram</p>
+                                <p class="text-sm font-medium text-slate-800 dark:text-slate-200">Noapara, Firoz Shah, Pahartali, Chattogram</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="flex gap-4 mt-8">
-                        <a href="https://www.linkedin.com/in/mamun1506" target="_blank" class="w-10 h-10 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-blue-600 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-white transition" title="LinkedIn">
+                    <div class="flex gap-3 mt-8">
+                        <a href="https://www.linkedin.com/in/mamun1506" target="_blank" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-center text-slate-700 dark:text-slate-300 transition-all duration-300 hover:scale-110 shadow-sm" title="LinkedIn">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
-                        <a href="https://www.facebook.com/share/1CJvW2PXi8/" target="_blank" class="w-10 h-10 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-blue-600 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-white transition" title="Facebook">
+                        <a href="https://www.facebook.com/share/1CJvW2PXi8/" target="_blank" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-center text-slate-700 dark:text-slate-300 transition-all duration-300 hover:scale-110 shadow-sm" title="Facebook">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
-                        <a href="https://github.com/AbdullaMamun15" target="_blank" class="w-10 h-10 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-blue-600 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-white transition" title="GitHub">
+                        <a href="https://github.com/AbdullaMamun15" target="_blank" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-center text-slate-700 dark:text-slate-300 transition-all duration-300 hover:scale-110 shadow-sm" title="GitHub">
                             <i class="fa-brands fa-github"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="bg-slate-100 dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
-                    <h3 class="text-xl font-bold mb-4">Download Resume</h3>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-6">Click the button below to download the official PDF copy of my Curriculum Vitae.</p>
-                    <a href="Abdulla_Al_Mamun_CV.pdf" download="Abdulla_Al_Mamun_CV.pdf" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold flex items-center justify-center gap-2 transition shadow-lg shadow-blue-600/20">
-                        <i class="fa-solid fa-file-pdf"></i> Download CV (PDF)
+                <div class="bg-gradient-to-br from-slate-100 to-slate-200/80 dark:from-slate-900 dark:to-slate-800/80 p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">Curriculum Vitae</span>
+                        <h3 class="text-2xl font-bold mt-1 mb-2">Looking for my CV?</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">Get a copy of my complete professional background, qualifications, and employment history.</p>
+                    </div>
+                    <a href="Abdulla_Al_Mamun_CV.pdf" download="Abdulla_Al_Mamun_CV.pdf" class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold flex items-center justify-center gap-2.5 transition-all shadow-lg shadow-blue-600/25 hover:shadow-blue-600/35 hover:-translate-y-0.5">
+                        <i class="fa-solid fa-download text-base"></i> Download Official CV
                     </a>
                 </div>
             </div>
 
-            <div class="border-t border-slate-200 dark:border-slate-800 pt-8 text-center text-slate-500 dark:text-slate-400 text-xs">
-                © 2026 Abdulla Al Mamun. All Rights Reserved.
+            <div class="border-t border-slate-200 dark:border-slate-800 pt-8 text-center text-slate-500 dark:text-slate-400 text-xs font-medium">
+                © 2026 Abdulla Al Mamun | Sub Assistant Engineer at Abul Khair Group.
             </div>
         </div>
     </footer>
 
-    <!-- Theme Toggle JavaScript -->
+    <!-- Interactive JavaScript -->
     <script>
+        // Dark/Light Theme Toggle Functionality
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const htmlElement = document.documentElement;
@@ -369,6 +411,35 @@
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
             }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Dynamic Active Menu Indicator on Scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
